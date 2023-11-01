@@ -1,0 +1,37 @@
+@mixin flexible($width: 100%) {
+  display: flex;
+  width: $width;
+}
+
+@mixin gridable($width: 100%) {
+  display: grid;
+  width: $width;
+}
+
+@mixin unmarkedList($padding: 0, $margin: 0) {
+  margin: $margin;
+  padding: $padding;
+  list-style-type: none;
+}
+
+@mixin button() {
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+@mixin defaultLink {
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s ease;
+  position: relative;
+
+  &:hover {
+    color: red;
+  }
+}

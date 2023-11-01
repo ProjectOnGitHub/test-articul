@@ -1,0 +1,45 @@
+{
+  "name": "test-articul",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "npx webpack serve",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "dependencies": {
+    "core-js": "^3.33.2",
+    "vue": "^3.3.7",
+    "vue-router": "^4.2.5",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/eslint-parser": "^7.22.15",
+    "@babel/preset-env": "^7.23.2",
+    "babel-loader": "^9.1.3",
+    "css-loader": "^6.8.1",
+    "eslint": "^8.52.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-vue": "^9.18.1",
+    "gh-pages": "^6.0.0",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "postcss": "^8.4.31",
+    "postcss-loader": "^7.3.3",
+    "postcss-preset-env": "^9.2.0",
+    "prettier": "^3.0.3",
+    "sass": "^1.69.5",
+    "sass-loader": "^13.3.2",
+    "svg-sprite-loader": "^6.0.11",
+    "svg-sprite-plugin": "^0.0.1",
+    "svgo-loader": "^4.0.0",
+    "vue-loader": "^17.3.1",
+    "vue-template-compiler": "^2.7.15",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}
