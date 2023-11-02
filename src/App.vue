@@ -18,7 +18,7 @@ export default {
   components: { TheFeatures, TheVacancies, TheContacts, TheAbout },
   data() {
     return {
-      features: ['Удаленка', 'Высокая зарплата', 'Обучение', 'Вечеринки', 'Сильная комаанда'],
+      features: ['Удаленка', 'Высокая зарплата', 'Обучение', 'Вечеринки', 'Сильная команда'],
       vacancies: [
         {
           id: 1,
@@ -72,4 +72,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.popup {
+  @include gridable();
+  justify-content: center;
+  background-color: $color-background;
+}
+</style>

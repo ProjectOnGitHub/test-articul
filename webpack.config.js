@@ -81,13 +81,15 @@ module.exports = {
             }
           },
           {
+            loader: 'postcss-loader'
+          },
+          {
             loader: 'sass-loader',
             options: {
               additionalData: `@import "./src/assets/scss/_mixins.scss";
               @import "./src/assets/scss/_variables.scss";`
             }
-          },
-          'postcss-loader'
+          }
         ]
       },
       {

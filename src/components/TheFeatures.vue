@@ -5,7 +5,9 @@
       :key="index"
       class="feature"
     >
-      <decorate-item>{{ item }}</decorate-item>
+      <decorate-item modifier="decorate-item_feature">
+        {{ item }}
+      </decorate-item>
     </li>
   </ul>
 </template>
@@ -26,4 +28,20 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.features {
+  grid-area: features;
+  @include unmarkedList;
+  @include gridable(max-content);
+  gap: 16px;
+  transform: rotate(-90deg);
+}
+
+.feature {
+  width: max-content;
+
+  &:first-child {
+    transform: rotate(135deg) translate(-30px, 60px);
+  }
+}
+</style>

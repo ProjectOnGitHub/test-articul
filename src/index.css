@@ -1,2 +1,6 @@
 @import './assets/vendor/normalize.css';
 @import './assets/vendor/fonts.css';
+
+html {
+  font-size: 10px;
+}

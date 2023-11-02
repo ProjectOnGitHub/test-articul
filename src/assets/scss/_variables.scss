@@ -3,15 +3,33 @@ $color-text: #fff;
 $color-decorate: #c31e54;
 
 $font-size-default: 10px;
-$font-size-xs: 2, 2rem;
-$font-size-s: 2.27rem;
-$font-size-m: 2.6rem;
-$font-size-l: 3rem;
-$font-size-xl: 3.5rem;
-$font-size-xxl: 6.93px;
-$font-size-3xl: 16.83px;
+$font-size-text-xs: 1.2rem;
+$font-size-text-s: 1.33rem;
+$font-size-text-m: 1.6rem;
+$font-size-text-l: 1.8rem;
+$font-size-text-xl: 2.2rem;
+$font-size-text-xxl: 2.5rem;
+$font-size-text-3xl: 2.6rem;
+$font-size-text-4xl: 2.7rem;
+$font-size-text-5xl: 3rem;
+$font-size-text-6xl: 3.5rem;
 
-$desktop-l: 1920px;
+$font-size-decorate-s: 1.11rem;
+$font-size-decorate-m: 2.68rem;
+$font-size-decorate-l: 2.27rem;
+$font-size-subtitle-s: 2rem;
+$font-size-subtitle-m: 4rem;
+$font-size-subtitle-l: 6.93rem;
+
+$font-size-counter-s: 5.22rem;
+$font-size-counter-m: 7.05rem;
+$font-size-title-l: 13.1rem;
+
+$font-size-title-s: 3.6rem;
+$font-size-title-m: 9rem;
+$font-size-title-l: 16.83rem;
+
+$desktop-l: 1800px;
 $desktop-m: 1440px;
 $desktop-s: 1024px;
 $tablet-l: 900px;
@@ -20,20 +38,7 @@ $tablet-s: 640px;
 $smartphone: 480px;
 $mobile: 320px;
 
-$font-weight-normal: normal;
-$font-weight-semi-bold: 600;
-$font-weight-bold: bold;
-$font-weight-black: 900;
-
-$padding-z: 0px;
-$padding-xs: 4px;
-$padding-s: 8px;
-$padding-m: 12px;
-$padding-l: 16px;
-$padding-xl: 20px;
-$padding-xxl: 24px;
-$padding-3xl: 28px;
-$padding-4xl: 32px;
-$padding-5xl: 36px;
+$font-family-heading: 'DrukWide', Arial, sans-serif;
+$font-family-text: 'Articul', Arial, sans-serif;
 
 $mouse-device: '(hover: hover) and (pointer: fine)';
