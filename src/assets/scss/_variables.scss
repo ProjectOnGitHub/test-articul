@@ -1,15 +1,24 @@
-$font-size-xs: 10px;
-$font-size-s: 14px;
-$font-size-m: 18px;
-$font-size-l: 24px;
-$font-size-xl: 28px;
-$font-size-xxl: 32px;
+$color-background: #000;
+$color-text: #fff;
+$color-decorate: #c31e54;
 
-$desktop: 1024px;
-$tablet-large: 900px;
-$tablet: 768px;
-$tablet-small: 640px;
+$font-size-default: 10px;
+$font-size-xs: 2, 2rem;
+$font-size-s: 2.27rem;
+$font-size-m: 2.6rem;
+$font-size-l: 3rem;
+$font-size-xl: 3.5rem;
+$font-size-xxl: 6.93px;
+$font-size-3xl: 16.83px;
+
+$desktop-l: 1920px;
+$desktop-m: 1440px;
+$desktop-s: 1024px;
+$tablet-l: 900px;
+$tablet-m: 768px;
+$tablet-s: 640px;
 $smartphone: 480px;
+$mobile: 320px;
 
 $font-weight-normal: normal;
 $font-weight-semi-bold: 600;
