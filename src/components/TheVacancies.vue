@@ -19,34 +19,44 @@
         <p class="vacancy__description">
           {{ vacancy.description }}
         </p>
-        <ul class="vacancy__tabs">
-          <li
-            v-for="(info, index) in vacancy.info"
-            :key="index"
-            class="vacancy-tab"
-            @click="selectTab(index)"
+        <div class="vacancy-tabs">
+          <ul class="vacancy-tabs__names">
+            <li
+              v-for="(info, index) in vacancy.info"
+              :key="index"
+              class="vacancy-tabs__name"
+              @click="selectTab(index)"
+            >
+              <h4 class="vacancy-tabs__title">
+                {{ info.name }}
+              </h4>
+            </li>
+          </ul>
+          <ul class="vacancy-tabs__list">
+            <li
+              v-for="(info, index) in vacancy.info"
+              :key="index"
+              class="vacancy-tab"
+            >
+              <ul class="vacancy-tab__list">
+                <li
+                  v-for="(item, index) in info.list"
+                  v-if="activeTab === index"
+                  :key="index"
+                  class="vacancy-tab__item"
+                >
+                  {{ item }}
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <button
+            class="button"
+            type="button"
           >
-            <h4 class="vacancy-tab__title">
-              {{ info.name }}
-            </h4>
-            <ul class="vacancy-tab__list">
-              <li
-                v-for="(item, index) in info.list"
-                v-if="activeTab === index"
-                :key="index"
-                class="vacancy-tab__item"
-              >
-                {{ item }}
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <button
-          class="button"
-          type="button"
-        >
-          Откликнуться
-        </button>
+            Откликнуться
+          </button>
+        </div>
       </div>
     </li>
   </ul>
@@ -89,8 +99,15 @@ export default {
   @include unmarkedList;
 
   &__container {
+    max-width: 1308px;
+    @include gridable();
+    grid-template-areas:
+      'exp description'
+      '. tabs';
+    gap: 100px;
     box-sizing: border-box;
     padding: 75px 0 100px;
+    justify-content: space-between;
   }
 
   &__heading {
@@ -117,9 +134,11 @@ export default {
   &__button-show {
     @include defaultButton;
     @include cross();
+
     &::after {
       transform: rotate(0);
     }
+
     &::before {
       transform: rotate(90deg);
       transition: transform 0.5s easy;
@@ -131,6 +150,7 @@ export default {
   }
 
   &__description {
+    grid-area: description;
     font-family: $font-family-text;
     font-size: $font-size-text-6xl;
     margin: 0;
@@ -140,21 +160,25 @@ export default {
     width: 100%;
     max-width: 835px;
   }
-  &__tabs {
-    @include unmarkedList;
-  }
 }
 
-.vacancy-tab {
+.vacancy-tabs {
+  grid-area: tabs;
   @include flexible();
   flex-direction: column;
-  max-width: 835px;
+  max-width: 871px;
   font-family: $font-family-text;
   font-size: $font-size-text-xl;
+  gap: 85px;
   font-weight: 400;
   color: $color-text;
-  gap: 85px;
-  cursor: pointer;
+
+  &__names {
+    @include unmarkedList;
+    @include flexible();
+    justify-content: space-between;
+    cursor: pointer;
+  }
 
   &__title {
     line-height: 2.48;
@@ -172,10 +196,21 @@ export default {
 
   &__list {
     @include unmarkedList;
+  }
+}
+
+.vacancy-tab {
+  @include flexible();
+  flex-direction: column;
+  gap: 85px;
+
+  &__list {
+    @include unmarkedList;
     @include gridable();
     justify-content: space-between;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 74px;
+    max-width: 871px;
   }
 
   &__item {
@@ -187,6 +222,7 @@ export default {
 }
 
 .experience {
+  grid-area: exp;
   @include flexible(max-content);
   flex-direction: column;
   font-family: $font-family-text;
