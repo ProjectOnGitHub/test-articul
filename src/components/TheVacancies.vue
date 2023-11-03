@@ -27,7 +27,10 @@
               class="vacancy-tabs__name"
               @click="selectTab(index)"
             >
-              <h4 class="vacancy-tabs__title">
+              <h4
+                class="vacancy-tabs__title"
+                :class="{ 'vacancy-tabs__title_active': activeTab === index }"
+              >
                 {{ info.name }}
               </h4>
             </li>
