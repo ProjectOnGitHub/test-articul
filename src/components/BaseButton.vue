@@ -3,7 +3,9 @@
     type="button"
     class="button"
     :class="className"
-  ></button>
+  >
+    <slot></slot>
+  </button>
 </template>
 
 <script>

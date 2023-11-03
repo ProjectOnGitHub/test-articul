@@ -33,6 +33,11 @@ export default {
     animation: rotation 20s infinite linear;
     justify-self: start;
   }
+
+  &__mail {
+    @include flexible(36px);
+    height: 36px;
+  }
 }
 
 @keyframes rotation {

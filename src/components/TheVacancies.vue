@@ -42,23 +42,25 @@
               class="vacancy-tab"
             >
               <ul class="vacancy-tab__list">
-                <li
-                  v-for="(item, index) in info.list"
-                  v-if="activeTab === index"
-                  :key="index"
-                  class="vacancy-tab__item"
-                >
-                  {{ item }}
-                </li>
+                <template v-if="activeTab === index">
+                  <li
+                    v-for="item in info.list"
+                    :key="item.id"
+                    class="vacancy-tab__item"
+                  >
+                    {{ item }}
+                  </li>
+                </template>
               </ul>
             </li>
           </ul>
-          <button
-            class="button"
-            type="button"
-          >
+          <base-button class-name="vacancy__button-send">
+            <svg-icon
+              icon-name="icon-mail"
+              icon-class="icon__mail"
+            />
             Откликнуться
-          </button>
+          </base-button>
         </div>
       </div>
     </li>
@@ -67,10 +69,11 @@
 
 <script>
 import BaseButton from './BaseButton.vue';
+import SvgIcon from './SvgIcon.vue';
 
 export default {
   name: 'TheVacancies',
-  components: { BaseButton },
+  components: { BaseButton, SvgIcon },
   props: {
     vacanciesInfo: {
       type: Object,
@@ -150,6 +153,22 @@ export default {
     &_opened::before {
       transform: rotate(0deg);
     }
+  }
+
+  &__button-send {
+    @include defaultButton;
+    @include flexible();
+    font-family: $font-family-heading;
+    font-size: $font-size-text-xl;
+    color: $color-text;
+    background-color: $color-decorate;
+    border-radius: 50px;
+    padding: 22px 0;
+    text-transform: uppercase;
+    line-height: 1.18;
+    letter-spacing: 0.04rem;
+    font-weight: 500;
+    gap: 21px;
   }
 
   &__description {
