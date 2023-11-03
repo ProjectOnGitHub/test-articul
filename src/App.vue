@@ -75,7 +75,9 @@ export default {
 <style lang="scss" scoped>
 .popup {
   @include gridable();
-  justify-content: center;
+  justify-content: stretch;
+  justify-items: center;
   background-color: $color-background;
+  gap: 120px;
 }
 </style>

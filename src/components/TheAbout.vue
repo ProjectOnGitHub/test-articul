@@ -30,32 +30,38 @@ export default {
 <style lang="scss" scoped>
 .about {
   @include gridable();
-  max-width: calc($desktop-l + 2 * 6rem);
+  max-width: calc($desktop-l + 2 * 60px);
   box-sizing: border-box;
-  padding: 0 6rem;
+  padding: 0 60px;
+  grid-template-columns: 560px min-content auto;
   grid-template-areas:
     'features first-row first-row'
-    'second-row second-row counter'
-    '. text counter';
+    'second-row second-row  counter'
+    'text text counter';
+  gap: 30px;
+  padding: 70px 0 22px;
 
   &__title {
     font-family: 'DrukWide', Arial, sans-serif;
     font-size: $font-size-title-l;
     font-weight: 500;
-    line-height: 1;
+    line-height: 0.9;
     text-transform: uppercase;
     letter-spacing: 0.34rem;
     margin: 0;
     white-space: nowrap;
+    max-width: max-content;
 
     &_first-row {
       grid-area: first-row;
       color: $color-text;
+      align-self: end;
     }
 
     &_second-row {
       grid-area: second-row;
       color: $color-decorate;
+      align-self: start;
     }
   }
   &__text {
@@ -68,24 +74,26 @@ export default {
     line-height: 1.34;
     margin: 0;
     color: $color-text;
+    justify-self: center;
+    align-self: end;
+    padding-top: 60px;
   }
 }
 
 .counter {
   grid-area: counter;
-  @include flexible(361px);
+  @include flexible(330px);
   justify-content: center;
   align-items: center;
-  height: 361px;
+  height: 330px;
   position: relative;
 
   &__number {
     display: inline-block;
-
     position: relative;
     font-family: $font-family-heading;
     color: $color-text;
-    font-size: $font-size-title-l;
+    font-size: $font-size-counter-l;
   }
 }
 </style>

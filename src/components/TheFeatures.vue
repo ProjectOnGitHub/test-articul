@@ -34,14 +34,22 @@ export default {
   @include unmarkedList;
   @include gridable(max-content);
   gap: 16px;
-  transform: rotate(-90deg);
+  //transform: rotate(-90deg);
+  grid-template-columns: repeat(5, max-content);
+  align-items: end;
+  justify-self: end;
 }
 
 .feature {
   width: max-content;
 
   &:first-child {
-    transform: rotate(135deg) translate(-30px, 60px);
+    transform-origin: bottom;
+    transform: rotate(315deg) translateX(30px);
+
+    .decorate-item_feature {
+      transform: rotate(0deg);
+    }
   }
 }
 </style>

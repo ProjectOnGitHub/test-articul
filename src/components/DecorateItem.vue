@@ -33,7 +33,10 @@ export default {
 
   &_feature {
     font-size: $font-size-decorate-l;
-    padding: 0 $font-size-decorate-l;
+    padding: $font-size-decorate-l 0;
+    writing-mode: vertical-lr;
+    transform-origin: end;
+    transform: rotate(-180deg);
   }
 }
 </style>

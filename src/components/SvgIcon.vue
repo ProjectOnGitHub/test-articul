@@ -26,11 +26,12 @@ export default {
 <style lang="scss" scoped>
 .icon {
   &__counter {
-    @include flexible(361px);
-    height: 361px;
+    @include flexible(330px);
+    height: 330px;
     position: absolute;
     flex-shrink: 0;
     animation: rotation 20s infinite linear;
+    justify-self: start;
   }
 }
 
