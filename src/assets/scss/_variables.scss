@@ -1,6 +1,7 @@
 $color-background: #000;
 $color-text: #fff;
 $color-decorate: #c31e54;
+$color-border: #666;
 
 $font-size-default: 10px;
 $font-size-text-xs: 1.2rem;
@@ -8,11 +9,12 @@ $font-size-text-s: 1.33rem;
 $font-size-text-m: 1.6rem;
 $font-size-text-l: 1.8rem;
 $font-size-text-xl: 2.2rem;
-$font-size-text-xxl: 2.5rem;
-$font-size-text-3xl: 2.6rem;
-$font-size-text-4xl: 2.7rem;
-$font-size-text-5xl: 3rem;
-$font-size-text-6xl: 3.5rem;
+$font-size-text-xxl: 2.3rem;
+$font-size-text-3xl: 2.5rem;
+$font-size-text-4xl: 2.6rem;
+$font-size-text-5xl: 2.7rem;
+$font-size-text-6xl: 3rem;
+$font-size-text-7xl: 3.5rem;
 
 $font-size-decorate-s: 1.11rem;
 $font-size-decorate-m: 2.68rem;
@@ -21,9 +23,11 @@ $font-size-subtitle-s: 2rem;
 $font-size-subtitle-m: 4rem;
 $font-size-subtitle-l: 6.93rem;
 
-$font-size-counter-s: 5.22rem;
-$font-size-counter-m: 7.05rem;
-$font-size-counter-l: 13.1rem;
+$font-size-counter-xs: 5.22rem;
+$font-size-counter-s: 7.05rem;
+$font-size-counter-m: 1.09rem;
+$font-size-counter-l: 12.33rem;
+$font-size-counter-xl: 13.1rem;
 
 $font-size-title-s: 3.6rem;
 $font-size-title-m: 9rem;

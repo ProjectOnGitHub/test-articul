@@ -1,5 +1,6 @@
 <template>
   <section class="popup">
+    <base-button class-name="popup__button-close" />
     <the-about>
       <the-features :features-info="features" />
     </the-about>
@@ -9,20 +10,21 @@
 </template>
 
 <script>
+import BaseButton from './components/BaseButton.vue';
 import TheAbout from './components/TheAbout.vue';
 import TheContacts from './components/TheContacts.vue';
 import TheFeatures from './components/TheFeatures.vue';
 import TheVacancies from './components/TheVacancies.vue';
 
 export default {
-  components: { TheFeatures, TheVacancies, TheContacts, TheAbout },
+  components: { TheFeatures, TheVacancies, TheContacts, TheAbout, BaseButton },
   data() {
     return {
       features: ['Удаленка', 'Высокая зарплата', 'Обучение', 'Вечеринки', 'Сильная команда'],
       vacancies: [
         {
           id: 1,
-          name: 'Middle Web Developer',
+          name: 'Middle Web Designer',
           experience: '>6',
           description:
             'Самостоятельный дизайнер с отличной насмотренностью, который способен без помощи арт-директора решать как базовые дизайн-задачи так и сложные (дизайн лендингов, подач, презентаций и тд.)',
@@ -79,5 +81,23 @@ export default {
   justify-items: center;
   background-color: $color-background;
   gap: 120px;
+  position: relative;
+
+  &__button-close {
+    @include cross();
+    position: absolute;
+    top: 60px;
+    right: 50px;
+
+    &::after,
+    &::before {
+      transition: background-color 0.5s ease;
+    }
+
+    &:hover::after,
+    &:hover::before {
+      background-color: $color-decorate;
+    }
+  }
 }
 </style>

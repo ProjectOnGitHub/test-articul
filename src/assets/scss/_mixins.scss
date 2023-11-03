@@ -14,7 +14,7 @@
   list-style-type: none;
 }
 
-@mixin button() {
+@mixin defaultButton() {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
@@ -33,5 +33,42 @@
 
   &:hover {
     color: red;
+  }
+}
+
+@mixin maxWidth($paddingX: 60px) {
+  box-sizing: border-box;
+  max-width: calc($desktop-l + 2 * $paddingX);
+  padding-left: $paddingX;
+  padding-right: $paddingX;
+}
+
+@mixin cross($size: 96px, $color: $color-text, $thickness: 10px) {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  position: relative;
+  width: $size;
+  height: $size;
+  cursor: pointer;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: calc(($size - $thickness) / 2);
+    left: 0;
+    right: 0;
+    height: $thickness;
+    background-color: $color;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(-45deg);
   }
 }

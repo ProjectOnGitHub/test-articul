@@ -3,7 +3,6 @@
     <slot></slot>
     <h1 class="about__title about__title_first-row">Карьера</h1>
     <h2 class="about__title about__title_second-row">в Articul</h2>
-
     <div class="counter">
       <svg-icon
         icon-class="icon icon__counter"
@@ -30,16 +29,15 @@ export default {
 <style lang="scss" scoped>
 .about {
   @include gridable();
-  max-width: calc($desktop-l + 2 * 60px);
-  box-sizing: border-box;
-  padding: 0 60px;
+  @include maxWidth();
   grid-template-columns: 560px min-content auto;
   grid-template-areas:
     'features first-row first-row'
     'second-row second-row  counter'
     'text text counter';
   gap: 30px;
-  padding: 70px 0 22px;
+  padding-top: 70px;
+  padding-bottom: 0;
 
   &__title {
     font-family: 'DrukWide', Arial, sans-serif;
@@ -93,7 +91,7 @@ export default {
     position: relative;
     font-family: $font-family-heading;
     color: $color-text;
-    font-size: $font-size-counter-l;
+    font-size: $font-size-counter-xl;
   }
 }
 </style>
