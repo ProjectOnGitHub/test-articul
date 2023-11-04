@@ -36,8 +36,6 @@ export default {
     'second-row second-row  counter'
     'text text counter';
   gap: 30px;
-  padding-top: 70px;
-  padding-bottom: 0;
 
   &__title {
     font-family: 'DrukWide', Arial, sans-serif;

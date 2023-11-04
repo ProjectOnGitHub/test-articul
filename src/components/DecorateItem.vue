@@ -20,7 +20,7 @@ export default {
 
 <style lang="scss" scoped>
 .decorate-item {
-  @include flexible(max-content);
+  display: inline-block;
   font-family: $font-family-heading;
   color: $color-text;
   box-sizing: border-box;
@@ -30,13 +30,17 @@ export default {
   text-transform: uppercase;
   border: 3px solid $color-decorate;
   background-color: $color-background;
+  font-size: $font-size-decorate-l;
 
   &_feature {
-    font-size: $font-size-decorate-l;
-    padding: $font-size-decorate-l 0;
     writing-mode: vertical-lr;
     transform-origin: end;
     transform: rotate(-180deg);
+    padding: 25px 0;
+  }
+
+  &_arrow {
+    padding: 0 25px;
   }
 }
 </style>

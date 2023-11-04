@@ -1,10 +1,16 @@
 <template>
   <div class="contacts">
-    <div class="arrow-text">
-      <span class="decorate-item">Я точно нужен вам,</span>
-      <span class="decorate-item">просто вы</span>
-      <span class="decorate-item">пока Не знаете</span>
-    </div>
+    <ul class="arrow">
+      <li class="arrow__item">
+        <decorate-item modifier="decorate-item_arrow"> просто вы </decorate-item>
+      </li>
+      <li class="arrow__item">
+        <decorate-item modifier="decorate-item_arrow"> Я точно нужен вам, </decorate-item>
+      </li>
+      <li class="arrow__item">
+        <decorate-item modifier="decorate-item_arrow"> пока Не знаете </decorate-item>
+      </li>
+    </ul>
     <p class="contacts__text">
       Eсли вы хотите стать частью нашей команды, но не нашли подходящую вакансию в списке выше, то
       <a
@@ -18,17 +24,21 @@
 </template>
 
 <script>
+import DecorateItem from './DecorateItem.vue';
+
 export default {
-  name: 'TheContacts'
+  name: 'TheContacts',
+  components: { DecorateItem }
 };
 </script>
 
 <style lang="scss" scoped>
 .contacts {
-  @include flexible();
+  @include gridable();
+  grid-template-columns: 580px 1fr;
   @include maxWidth();
-  padding-top: 120px;
-  padding-bottom: 120px;
+  align-items: center;
+  gap: 150px;
 
   &__text {
     font-family: $font-family-heading;
@@ -81,6 +91,31 @@ export default {
 
     &:hover::after {
       width: 100%;
+    }
+  }
+}
+
+.arrow {
+  @include unmarkedList;
+  @include gridable(100%);
+  align-content: center;
+  justify-items: end;
+  min-height: 485px;
+  height: 100%;
+
+  &__item {
+    &:nth-of-type(1) {
+      transform-origin: center;
+      transform: rotate(45deg) translate(-70px, 0px);
+    }
+
+    &:nth-of-type(2) {
+      transform: translateX(-150px);
+    }
+
+    &:nth-of-type(3) {
+      transform-origin: center;
+      transform: rotate(-46deg) translate(0, 40px);
     }
   }
 }

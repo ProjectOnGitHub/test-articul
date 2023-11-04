@@ -128,6 +128,8 @@ export default {
   background-color: $color-background;
   gap: 120px;
   position: relative;
+  box-sizing: border-box;
+  padding: 75px 0 120px;
 
   &__button-close {
     @include cross();
