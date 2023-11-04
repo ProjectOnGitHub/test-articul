@@ -55,11 +55,13 @@
             </li>
           </ul>
           <base-button class-name="vacancy__button-send">
-            <svg-icon
-              icon-name="icon-mail"
-              icon-class="icon__mail"
-            />
-            Откликнуться
+            <span class="vacancy__button-send-container">
+              <svg-icon
+                icon-name="icon-mail"
+                icon-class="icon__mail"
+              />
+              Откликнуться
+            </span>
           </base-button>
         </div>
       </div>
@@ -168,7 +170,35 @@ export default {
     line-height: 1.18;
     letter-spacing: 0.04rem;
     font-weight: 500;
-    gap: 21px;
+    overflow: hidden;
+    position: relative;
+
+    &-container {
+      @include flexible();
+      @include defaultButton;
+      gap: 21px;
+      flex-wrap: nowrap;
+      transform: translateY(0);
+      transition: transform 0.3s ease;
+    }
+
+    &:hover &-container {
+      transform: translateY(-200%);
+    }
+
+    &::before {
+      content: 'Откликнуться';
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      top: 100%;
+      transform: translateY(0);
+      transition: transform 0.3s ease;
+    }
+
+    &:hover::before {
+      transform: translateY(-200%);
+    }
   }
 
   &__description {
