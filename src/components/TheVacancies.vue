@@ -5,64 +5,75 @@
       :key="vacancy.id"
       class="vacancy"
     >
-      <div class="vacancy__heading">
+      <div
+        class="vacancy__heading"
+        @click="toggleVacancyInfo(vacancy.id)"
+      >
         <h3 class="vacancy__title">
           {{ vacancy.name }}
         </h3>
-        <base-button class-name="vacancy__button-show" />
+        <base-button
+          class-name="vacancy__button-show"
+          :class="{ 'vacancy__button-show_opened': vacancy.id === activeVacancy }"
+        />
       </div>
-      <div class="vacancy__container">
-        <div class="experience">
-          <span class="experience__number">{{ vacancy.experience }}</span>
-          <span class="experience__text">лет опыта</span>
-        </div>
-        <p class="vacancy__description">
-          {{ vacancy.description }}
-        </p>
-        <div class="vacancy-tabs">
-          <ul class="vacancy-tabs__names">
-            <li
-              v-for="(info, index) in vacancy.info"
-              :key="index"
-              class="vacancy-tabs__name"
-              @click="selectTab(index)"
-            >
-              <h4
-                class="vacancy-tabs__title"
-                :class="{ 'vacancy-tabs__title_active': activeTab === index }"
+      <div
+        class="vacancy__container"
+        :class="{ vacancy__container_opened: vacancy.id === activeVacancy }"
+      >
+        <div class="vacancy__info">
+          <div class="experience">
+            <span class="experience__number">{{ vacancy.experience }}</span>
+            <span class="experience__text">лет опыта</span>
+          </div>
+          <p class="vacancy__description">
+            {{ vacancy.description }}
+          </p>
+          <div class="vacancy-tabs">
+            <ul class="vacancy-tabs__names">
+              <li
+                v-for="(info, index) in vacancy.info"
+                :key="index"
+                class="vacancy-tabs__name"
+                @click="selectTab(index)"
               >
-                {{ info.name }}
-              </h4>
-            </li>
-          </ul>
-          <ul class="vacancy-tabs__list">
-            <li
-              v-for="(info, index) in vacancy.info"
-              :key="index"
-              class="vacancy-tab"
-            >
-              <ul class="vacancy-tab__list">
-                <template v-if="activeTab === index">
-                  <li
-                    v-for="item in info.list"
-                    :key="item.id"
-                    class="vacancy-tab__item"
-                  >
-                    {{ item }}
-                  </li>
-                </template>
-              </ul>
-            </li>
-          </ul>
-          <base-button class-name="vacancy__button-send">
-            <span class="vacancy__button-send-container">
-              <svg-icon
-                icon-name="icon-mail"
-                icon-class="icon__mail"
-              />
-              Откликнуться
-            </span>
-          </base-button>
+                <h4
+                  class="vacancy-tabs__title"
+                  :class="{ 'vacancy-tabs__title_active': activeTab === index }"
+                >
+                  {{ info.name }}
+                </h4>
+              </li>
+            </ul>
+            <ul class="vacancy-tabs__list">
+              <li
+                v-for="(info, index) in vacancy.info"
+                :key="index"
+                class="vacancy-tab"
+              >
+                <ul class="vacancy-tab__list">
+                  <template v-if="activeTab === index">
+                    <li
+                      v-for="item in info.list"
+                      :key="item.id"
+                      class="vacancy-tab__item"
+                    >
+                      {{ item }}
+                    </li>
+                  </template>
+                </ul>
+              </li>
+            </ul>
+            <base-button class-name="vacancy__button-send">
+              <span class="vacancy__button-send-container">
+                <svg-icon
+                  icon-name="icon-mail"
+                  icon-class="icon__mail"
+                />
+                Откликнуться
+              </span>
+            </base-button>
+          </div>
         </div>
       </div>
     </li>
@@ -84,12 +95,21 @@ export default {
   },
   data() {
     return {
-      activeTab: 0
+      activeTab: 0,
+      activeVacancy: 0
     };
   },
   methods: {
     selectTab(id) {
       this.activeTab = id;
+    },
+
+    toggleVacancyInfo(id) {
+      if (this.activeVacancy === id) {
+        this.activeVacancy = null; // Скрываем активную вакансию
+      } else {
+        this.activeVacancy = id; // Показываем выбранную вакансию
+      }
     }
   }
 };
@@ -109,6 +129,20 @@ export default {
   &__container {
     max-width: 1308px;
     @include gridable();
+    box-sizing: border-box;
+    opacity: 0;
+    overflow: hidden;
+    max-height: 0px;
+    transition: 1s linear;
+
+    &_opened {
+      max-height: 3000px;
+      opacity: 1;
+    }
+  }
+
+  &__info {
+    @include gridable();
     grid-template-areas:
       'exp description'
       '. tabs';
@@ -126,6 +160,7 @@ export default {
     border-top: 3px solid $color-text;
     border-bottom: 3px solid $color-text;
     box-sizing: border-box;
+    cursor: pointer;
   }
   &__title {
     margin: 0;
@@ -149,7 +184,7 @@ export default {
 
     &::before {
       transform: rotate(90deg);
-      transition: transform 0.5s easy;
+      transition: 1s linear;
     }
 
     &_opened::before {
