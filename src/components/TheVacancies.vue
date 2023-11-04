@@ -106,9 +106,9 @@ export default {
 
     toggleVacancyInfo(id) {
       if (this.activeVacancy === id) {
-        this.activeVacancy = null; // Скрываем активную вакансию
+        this.activeVacancy = null;
       } else {
-        this.activeVacancy = id; // Показываем выбранную вакансию
+        this.activeVacancy = id;
       }
     }
   }
@@ -117,6 +117,7 @@ export default {
 
 <style lang="scss" scoped>
 .vacancies {
+  @include unmarkedList;
   @include flexible();
   @include maxWidth();
   flex-direction: column;
@@ -133,7 +134,7 @@ export default {
     opacity: 0;
     overflow: hidden;
     max-height: 0px;
-    transition: 1s linear;
+    transition: 1s ease-in-out;
 
     &_opened {
       max-height: 3000px;
@@ -184,7 +185,7 @@ export default {
 
     &::before {
       transform: rotate(90deg);
-      transition: 1s linear;
+      transition: 1s ease-in-out;
     }
 
     &_opened::before {
