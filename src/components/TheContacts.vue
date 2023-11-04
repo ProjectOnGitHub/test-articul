@@ -44,9 +44,19 @@ export default {
   }
 
   &__link {
-    @include defaultLink;
-    color: $color-text;
+    color: transparent;
+    background-image: linear-gradient(90deg, $color-decorate 50%, $color-text 50%);
+    background-position: 100%;
+    background-size: 200% 100%;
+    background-clip: text;
+    transition: background-position 1s ease-in-out;
     position: relative;
+    text-decoration-skip-ink: none;
+    padding-bottom: 2px;
+
+    &:hover {
+      background-position: 0;
+    }
 
     &::after,
     &::before {
@@ -56,7 +66,7 @@ export default {
       bottom: -3px;
       display: block;
       height: 3px;
-      transition: width 0.5s ease-in-out;
+      transition: width 1s ease-in-out;
     }
 
     &::before {
@@ -72,12 +82,6 @@ export default {
     &:hover::after {
       width: 100%;
     }
-  }
-}
-
-@keyframes stripes {
-  to {
-    background-size: 100% 100%;
   }
 }
 </style>
