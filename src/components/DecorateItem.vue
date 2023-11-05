@@ -41,6 +41,13 @@ export default {
     transform-origin: end;
     transform: rotate(-180deg);
     padding: 25px 0;
+
+    @media screen and (max-width: $tablet-s) {
+      font-size: $font-size-decorate-xs;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      border-width: 2px;
+    }
   }
 
   &_arrow {

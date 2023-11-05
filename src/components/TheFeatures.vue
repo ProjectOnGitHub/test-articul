@@ -45,6 +45,14 @@ export default {
   @media screen and (max-width: $desktop-l) {
     justify-self: center;
   }
+
+  @media screen and (max-width: $tablet-s) {
+    gap: 8px;
+  }
+
+  @media screen and (max-width: $mobile-l) {
+    padding-left: 60px;
+  }
 }
 
 .feature {
@@ -53,6 +61,10 @@ export default {
   &:first-child {
     transform-origin: bottom;
     transform: rotate(315deg) translateX(30px);
+
+    @media screen and (max-width: $tablet-s) {
+      transform: rotate(315deg) translateX(15px);
+    }
 
     .decorate-item_feature {
       transform: rotate(0deg);

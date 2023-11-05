@@ -148,10 +148,17 @@ export default {
     }
 
     @media screen and (max-width: $desktop-l) {
-      @include cross(34px, $color-text, 4px);
+      @include cross(45px, $color-text, 4px);
       position: absolute;
       top: 33px;
       right: 33px;
+    }
+
+    @media screen and (max-width: $tablet-s) {
+      @include cross(25px, $color-text, 2px);
+      position: absolute;
+      top: 16px;
+      right: 16px;
     }
   }
 }

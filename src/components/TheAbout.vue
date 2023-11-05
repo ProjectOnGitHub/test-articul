@@ -45,6 +45,7 @@ export default {
 
   @media screen and (max-width: $desktop-l) {
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto) minmax(250px, 100%);
     grid-template-areas:
       'features features '
       'first-row first-row '
@@ -53,7 +54,16 @@ export default {
     justify-items: left;
   }
 
-  @media screen and (max-width: $desktop-m) {
+  @media screen and (max-width: $tablet-s) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, max-content);
+    grid-template-areas:
+      'features'
+      'first-row'
+      'second-row'
+      'text'
+      'counter';
+    justify-items: left;
   }
 
   &__title {
@@ -72,21 +82,26 @@ export default {
     }
 
     @media screen and (max-width: $desktop-l) {
-      justify-self: start;
-      font-size: $font-size-title-xl;
-    }
-
-    @media screen and (max-width: $desktop-m) {
-      font-size: $font-size-title-l;
+      font-size: clamp(
+        clamp($font-size-title-xs, $font-size-title-s, 11.75vw),
+        11vw,
+        $font-size-title-xxl
+      );
       letter-spacing: 0.18rem;
     }
 
-    @media screen and (max-width: $desktop-s) {
-      font-size: $font-size-title-m;
+    @media screen and (max-width: $tablet-s) {
+      justify-self: start;
+      font-size: clamp(
+        clamp($font-size-title-xs, $font-size-title-s, 11vw),
+        11vw,
+        $font-size-title-xxl
+      );
     }
 
-    @media screen and (max-width: $tablet-l) {
-      font-size: $font-size-title-s;
+    @media screen and (max-width: $smartphone) {
+      justify-self: start;
+      font-size: clamp(min(7vw, $font-size-title-xs), 10.5vw, $font-size-title-xxl);
     }
 
     &_first-row {
@@ -95,7 +110,7 @@ export default {
       align-self: end;
 
       @media screen and (max-width: $desktop-3xl) {
-        justify-self: end;
+        justify-self: start;
       }
     }
 
@@ -104,10 +119,8 @@ export default {
       color: $color-decorate;
       align-self: start;
     }
-    @media screen and (max-width: $desktop-3xl) {
-      justify-self: start;
-    }
   }
+
   &__text {
     grid-area: text;
     font-family: $font-family-text;
@@ -123,23 +136,34 @@ export default {
     padding-top: 60px;
 
     @media screen and (max-width: $desktop-l) {
-      align-self: auto;
+      align-self: center;
+      padding: 0;
+      font-size: $font-size-text-xl;
+      line-height: 1.27;
+    }
+
+    @media screen and (max-width: $tablet-s) {
+      max-width: max-content;
+      line-height: 1.25;
+    }
+
+    @media screen and (max-width: $smartphone) {
+      font-size: $font-size-decorate-m;
     }
   }
 }
 
 .counter {
   grid-area: counter;
-  @include flexible(330px);
   justify-content: center;
   align-items: center;
-  height: 330px;
+  align-self: center;
   position: relative;
   overflow: hidden;
+  @include counterSizes();
 
-  @media screen and (max-width: $desktop-xxl) {
-    height: 300px;
-    width: 300px;
+  @media screen and (max-width: $tablet-s) {
+    justify-self: end;
   }
 
   &__number {
@@ -148,6 +172,18 @@ export default {
     font-family: $font-family-heading;
     color: $color-text;
     font-size: $font-size-counter-xl;
+
+    @media screen and (max-width: $desktop-l) {
+      font-size: $font-size-counter-m;
+    }
+
+    @media screen and (max-width: $desktop-m) {
+      font-size: $font-size-counter-s;
+    }
+
+    @media screen and (max-width: $tablet-s) {
+      font-size: $font-size-counter-xs;
+    }
   }
 }
 </style>

@@ -44,13 +44,33 @@
   }
 
   @media screen and (max-width: $tablet-s) {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  @media screen and (max-width: $smartphone) {
     padding-left: 16px;
     padding-right: 16px;
+  }
+}
+
+@mixin counterSizes($size: 330px) {
+  @include flexible($size);
+  height: $size;
+
+  @media screen and (max-width: $desktop-xxl) {
+    height: 300px;
+    width: 300px;
+  }
+
+  @media screen and (max-width: $desktop-l) {
+    height: 250px;
+    width: 250px;
+  }
+
+  @media screen and (max-width: $desktop-m) {
+    height: 182px;
+    width: 182px;
+  }
+
+  @media screen and (max-width: $tablet-s) {
+    height: 136px;
+    width: 136px;
   }
 }
 
