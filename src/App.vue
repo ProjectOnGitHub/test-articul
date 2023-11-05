@@ -5,7 +5,7 @@
       <the-features :features-info="features" />
     </the-about>
     <the-vacancies :vacancies-info="vacancies" />
-    <!-- <the-contacts /> -->
+    <the-contacts />
   </section>
 </template>
 
@@ -130,6 +130,10 @@ export default {
   position: relative;
   box-sizing: border-box;
   padding: 75px 0 120px;
+
+  @media screen and (max-width: $tablet-s) {
+    gap: 45px;
+  }
 
   &__button-close {
     @include cross(70px, $color-text, 6px);

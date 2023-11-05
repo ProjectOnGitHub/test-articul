@@ -31,16 +31,17 @@ export default {
   border: 3px solid $color-decorate;
   background-color: $color-background;
   font-size: $font-size-decorate-l;
-
-  @media screen and (max-width: $desktop-xxl) {
-    font-size: $font-size-decorate-m;
-  }
+  white-space: nowrap;
 
   &_feature {
     writing-mode: vertical-lr;
     transform-origin: end;
     transform: rotate(-180deg);
     padding: 25px 0;
+
+    @media screen and (max-width: $desktop-xxl) {
+      font-size: $font-size-decorate-m;
+    }
 
     @media screen and (max-width: $tablet-s) {
       font-size: $font-size-decorate-xs;
@@ -52,6 +53,20 @@ export default {
 
   &_arrow {
     padding: 0 25px;
+
+    @media screen and (max-width: $desktop-xl) {
+      font-size: $font-size-decorate-xl;
+    }
+
+    @media screen and (max-width: $tablet-xm) {
+      font-size: $font-size-decorate-m;
+      padding: 0 25px;
+    }
+
+    @media screen and (max-width: $smartphone) {
+      font-size: $font-size-decorate-s;
+      padding: 0 12px;
+    }
   }
 }
 </style>

@@ -38,19 +38,32 @@ export default {
   grid-template-columns: 580px 1fr;
   @include maxWidth();
   align-items: center;
-  gap: 150px;
+  gap: 90px 150px;
+
+  @media screen and (max-width: $desktop-xl) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  @media screen and (max-width: $smartphone) {
+    gap: 0;
+  }
 
   &__text {
     font-family: $font-family-heading;
     color: $color-text;
     text-transform: uppercase;
     width: 100%;
-    font-size: $font-size-text-7xl;
+    font-size: clamp($font-size-text-3xl, 3vw, $font-size-text-7xl);
     font-weight: 500;
     letter-spacing: 0.07rem;
     line-height: 1.4;
     max-width: 808px;
     margin: 0;
+
+    @media screen and (max-width: $tablet-s) {
+      font-size: clamp($font-size-text-l, 3vw, $font-size-text-3xl);
+    }
   }
 
   &__link {
@@ -63,6 +76,7 @@ export default {
     position: relative;
     text-decoration-skip-ink: none;
     padding-bottom: 2px;
+    white-space: nowrap;
 
     &:hover {
       background-position: 0;
@@ -103,6 +117,18 @@ export default {
   min-height: 485px;
   height: 100%;
 
+  @media screen and (max-width: $desktop-xl) {
+    justify-items: center;
+  }
+
+  @media screen and (max-width: $tablet-s) {
+    min-height: 400px;
+  }
+
+  @media screen and (max-width: $smartphone) {
+    min-height: 300px;
+  }
+
   &__item {
     &:nth-of-type(1) {
       transform-origin: center;
@@ -115,7 +141,49 @@ export default {
 
     &:nth-of-type(3) {
       transform-origin: center;
-      transform: rotate(-46deg) translate(0, 40px);
+      transform: rotate(-45deg) translate(0, 50px);
+    }
+
+    @media screen and (max-width: $desktop-xl) {
+      &:nth-of-type(1) {
+        transform: rotate(45deg) translate(40px, -130px);
+      }
+
+      &:nth-of-type(2) {
+        transform: translateX(-80px);
+      }
+
+      &:nth-of-type(3) {
+        transform: rotate(-45deg) translate(90px, 130px);
+      }
+    }
+
+    @media screen and (max-width: $tablet-xm) {
+      &:nth-of-type(1) {
+        transform: rotate(45deg) translate(30px, -90px);
+      }
+
+      &:nth-of-type(2) {
+        transform: translateX(-50px);
+      }
+
+      &:nth-of-type(3) {
+        transform: rotate(-45deg) translate(60px, 95px);
+      }
+    }
+
+    @media screen and (max-width: $smartphone) {
+      &:nth-of-type(1) {
+        transform: rotate(45deg) translate(20px, -60px);
+      }
+
+      &:nth-of-type(2) {
+        transform: translateX(-30px);
+      }
+
+      &:nth-of-type(3) {
+        transform: rotate(-45deg) translate(50px, 60px);
+      }
     }
   }
 }
