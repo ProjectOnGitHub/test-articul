@@ -32,6 +32,16 @@ export default {
     flex-shrink: 0;
     animation: rotation 20s infinite linear;
     justify-self: start;
+
+    @media screen and (max-width: $desktop-xxl) {
+      height: 300px;
+      width: 300px;
+    }
+
+    @media screen and (max-width: $desktop-l) {
+      height: 250px;
+      width: 250px;
+    }
   }
 
   &__mail {

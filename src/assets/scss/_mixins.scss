@@ -34,9 +34,24 @@
 
 @mixin maxWidth($paddingX: 60px) {
   box-sizing: border-box;
-  max-width: calc($desktop-l + 2 * $paddingX);
+  max-width: calc($desktop-xxl + 2 * $paddingX);
   padding-left: $paddingX;
   padding-right: $paddingX;
+
+  @media screen and (max-width: $desktop-3xl) {
+    padding-left: 33px;
+    padding-right: 33px;
+  }
+
+  @media screen and (max-width: $tablet-s) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @media screen and (max-width: $smartphone) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 
 @mixin cross($size: 96px, $color: $color-text, $thickness: 10px) {

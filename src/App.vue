@@ -4,8 +4,8 @@
     <the-about>
       <the-features :features-info="features" />
     </the-about>
-    <the-vacancies :vacancies-info="vacancies" />
-    <the-contacts />
+    <!-- <the-vacancies :vacancies-info="vacancies" />
+    <the-contacts /> -->
   </section>
 </template>
 
@@ -132,7 +132,7 @@ export default {
   padding: 75px 0 120px;
 
   &__button-close {
-    @include cross();
+    @include cross(70px, $color-text, 6px);
     position: absolute;
     top: 60px;
     right: 50px;
@@ -145,6 +145,13 @@ export default {
     &:hover::after,
     &:hover::before {
       background-color: $color-decorate;
+    }
+
+    @media screen and (max-width: $desktop-l) {
+      @include cross(34px, $color-text, 4px);
+      position: absolute;
+      top: 33px;
+      right: 33px;
     }
   }
 }

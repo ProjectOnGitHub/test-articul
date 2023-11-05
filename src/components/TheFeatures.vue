@@ -34,10 +34,17 @@ export default {
   @include unmarkedList;
   @include gridable(max-content);
   gap: 16px;
-  //transform: rotate(-90deg);
   grid-template-columns: repeat(5, max-content);
   align-items: end;
   justify-self: end;
+
+  @media screen and (max-width: $desktop-xxl) {
+    gap: 12px;
+  }
+
+  @media screen and (max-width: $desktop-l) {
+    justify-self: center;
+  }
 }
 
 .feature {

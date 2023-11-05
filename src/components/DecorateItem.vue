@@ -32,6 +32,10 @@ export default {
   background-color: $color-background;
   font-size: $font-size-decorate-l;
 
+  @media screen and (max-width: $desktop-xxl) {
+    font-size: $font-size-decorate-m;
+  }
+
   &_feature {
     writing-mode: vertical-lr;
     transform-origin: end;

@@ -36,10 +36,29 @@ export default {
     'second-row second-row  counter'
     'text text counter';
   gap: 30px;
+  justify-content: center;
+
+  @media screen and (max-width: $desktop-xxl) {
+    gap: 20px;
+    grid-template-columns: 420px min-content auto;
+  }
+
+  @media screen and (max-width: $desktop-l) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      'features features '
+      'first-row first-row '
+      'second-row second-row '
+      'counter text';
+    justify-items: left;
+  }
+
+  @media screen and (max-width: $desktop-m) {
+  }
 
   &__title {
     font-family: 'DrukWide', Arial, sans-serif;
-    font-size: $font-size-title-l;
+    font-size: $font-size-title-xxl;
     font-weight: 500;
     line-height: 0.9;
     text-transform: uppercase;
@@ -48,16 +67,45 @@ export default {
     white-space: nowrap;
     max-width: max-content;
 
+    @media screen and (max-width: $desktop-3xl) {
+      font-size: $font-size-title-l;
+    }
+
+    @media screen and (max-width: $desktop-l) {
+      justify-self: start;
+      font-size: $font-size-title-xl;
+    }
+
+    @media screen and (max-width: $desktop-m) {
+      font-size: $font-size-title-l;
+      letter-spacing: 0.18rem;
+    }
+
+    @media screen and (max-width: $desktop-s) {
+      font-size: $font-size-title-m;
+    }
+
+    @media screen and (max-width: $tablet-l) {
+      font-size: $font-size-title-s;
+    }
+
     &_first-row {
       grid-area: first-row;
       color: $color-text;
       align-self: end;
+
+      @media screen and (max-width: $desktop-3xl) {
+        justify-self: end;
+      }
     }
 
     &_second-row {
       grid-area: second-row;
       color: $color-decorate;
       align-self: start;
+    }
+    @media screen and (max-width: $desktop-3xl) {
+      justify-self: start;
     }
   }
   &__text {
@@ -73,6 +121,10 @@ export default {
     justify-self: center;
     align-self: end;
     padding-top: 60px;
+
+    @media screen and (max-width: $desktop-l) {
+      align-self: auto;
+    }
   }
 }
 
@@ -83,6 +135,12 @@ export default {
   align-items: center;
   height: 330px;
   position: relative;
+  overflow: hidden;
+
+  @media screen and (max-width: $desktop-xxl) {
+    height: 300px;
+    width: 300px;
+  }
 
   &__number {
     display: inline-block;
