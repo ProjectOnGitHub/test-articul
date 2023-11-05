@@ -29,7 +29,7 @@
           <p class="vacancy__description">
             {{ vacancy.description }}
           </p>
-          <div class="vacancy-tabs">
+          <!-- <div class="vacancy-tabs">
             <ul class="vacancy-tabs__names">
               <li
                 v-for="(info, index) in vacancy.info"
@@ -73,7 +73,7 @@
                 Откликнуться
               </span>
             </base-button>
-          </div>
+          </div> -->
         </div>
       </div>
     </li>
@@ -149,8 +149,23 @@ export default {
       '. tabs';
     gap: 100px;
     box-sizing: border-box;
-    padding: 75px 0 100px;
+    padding: clamp(58px, 5vw, 74px) 0 clamp(75px, 7vw, 100px);
     justify-content: space-between;
+
+    @media screen and (max-width: $desktop-l) {
+      column-gap: 0;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: $tablet-s) {
+      padding: clamp(30px, 7vw, 58px) 0 clamp(44px, 9vw, 75px);
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'exp'
+        'description'
+        'tabs';
+      row-gap: 30px;
+    }
   }
 
   &__heading {
@@ -162,22 +177,46 @@ export default {
     border-bottom: 3px solid $color-text;
     box-sizing: border-box;
     cursor: pointer;
+    box-sizing: border-box;
+    padding: clamp(40px, 5vw, 60px) 0;
+
+    @media screen and (max-width: $tablet-s) {
+      padding: clamp(18px, 5vw, 40px) 0;
+      border-width: 2px;
+    }
   }
+
   &__title {
+    line-height: 1.2;
     margin: 0;
     color: $color-text;
     font-family: $font-family-heading;
-    font-size: $font-size-subtitle-l;
+    font-size: clamp($font-size-subtitle-m, 5vw, $font-size-subtitle-xl);
     font-weight: 500;
-    line-height: 2.91;
     letter-spacing: 0.14rem;
     text-transform: uppercase;
     box-sizing: border-box;
+
+    @media screen and (max-width: $desktop-xl) {
+      font-size: clamp($font-size-subtitle-m, 5vw, $font-size-subtitle-l);
+    }
+
+    @media screen and (max-width: $tablet-s) {
+      font-size: clamp($font-size-subtitle-s, 5vw, $font-size-subtitle-m);
+    }
   }
 
   &__button-show {
     @include defaultButton;
     @include cross();
+
+    @media screen and (max-width: $desktop-xl) {
+      @include cross(50px, $color-text, 5px);
+    }
+
+    @media screen and (max-width: $tablet-s) {
+      @include cross(21px, $color-text, 2px);
+    }
 
     &::after {
       transform: rotate(0);
@@ -185,7 +224,7 @@ export default {
 
     &::before {
       transform: rotate(90deg);
-      transition: 1s ease-in-out;
+      transition: transform 1s ease-in-out;
     }
 
     &_opened::before {
@@ -240,13 +279,18 @@ export default {
   &__description {
     grid-area: description;
     font-family: $font-family-text;
-    font-size: $font-size-text-6xl;
+    font-size: clamp($font-size-text-xl, 2vw, $font-size-text-6xl);
     margin: 0;
     color: $color-text;
     font-weight: 400;
     line-height: 1.3;
     width: 100%;
     max-width: 835px;
+
+    @media screen and (max-width: $tablet-s) {
+      font-size: clamp($font-size-text-l, 4vw, $font-size-text-xl);
+      line-height: 1.44;
+    }
   }
 }
 
@@ -319,11 +363,19 @@ export default {
   line-height: 1;
 
   &__number {
-    font-size: $font-size-counter-l;
+    font-size: clamp($font-size-counter-m, 10vw, $font-size-counter-l);
+
+    @media screen and (max-width: $tablet-s) {
+      font-size: clamp($font-size-counter-xs, 12vw, $font-size-counter-m);
+    }
   }
 
   &__text {
-    font-size: $font-size-text-xxl;
+    font-size: clamp($font-size-subtitle-s, 2vw, $font-size-text-xxl);
+
+    @media screen and (max-width: $tablet-s) {
+      font-size: clamp($font-size-text-m, 4vw, $font-size-subtitle-s);
+    }
   }
 }
 </style>

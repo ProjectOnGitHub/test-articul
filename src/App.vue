@@ -4,8 +4,8 @@
     <the-about>
       <the-features :features-info="features" />
     </the-about>
-    <!-- <the-vacancies :vacancies-info="vacancies" />
-    <the-contacts /> -->
+    <the-vacancies :vacancies-info="vacancies" />
+    <!-- <the-contacts /> -->
   </section>
 </template>
 
