@@ -30,13 +30,13 @@ export default {
 
 <style lang="scss" scoped>
 .features {
-  grid-area: features;
   @include unmarkedList;
   @include gridable(max-content);
-  gap: 16px;
+  grid-area: features;
   grid-template-columns: repeat(5, max-content);
-  align-items: end;
   justify-self: end;
+  align-items: end;
+  gap: 16px;
 
   @media screen and (max-width: $desktop-xxl) {
     gap: 12px;
@@ -59,8 +59,8 @@ export default {
   width: max-content;
 
   &:first-child {
-    transform-origin: bottom;
     transform: rotate(315deg) translateX(30px);
+    transform-origin: bottom;
 
     @media screen and (max-width: $tablet-s) {
       transform: rotate(315deg) translateX(15px);

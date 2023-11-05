@@ -21,32 +21,32 @@ export default {
 <style lang="scss" scoped>
 .decorate-item {
   display: inline-block;
+  box-sizing: border-box;
+  font-size: $font-size-decorate-l;
+  line-height: 2.91;
   font-family: $font-family-heading;
   color: $color-text;
-  box-sizing: border-box;
-  line-height: 2.91;
-  letter-spacing: 0.045rem;
-  border-radius: 88px;
   text-transform: uppercase;
-  border: 3px solid $color-decorate;
-  background-color: $color-background;
-  font-size: $font-size-decorate-l;
+  letter-spacing: 0.045rem;
   white-space: nowrap;
+  background-color: $color-background;
+  border: 3px solid $color-decorate;
+  border-radius: 88px;
 
   &_feature {
-    writing-mode: vertical-lr;
-    transform-origin: end;
-    transform: rotate(-180deg);
     padding: 25px 0;
+    transform: rotate(-180deg);
+    transform-origin: end;
+    writing-mode: vertical-lr;
 
     @media screen and (max-width: $desktop-xxl) {
       font-size: $font-size-decorate-m;
     }
 
     @media screen and (max-width: $tablet-s) {
-      font-size: $font-size-decorate-xs;
       padding-top: 12px;
       padding-bottom: 12px;
+      font-size: $font-size-decorate-xs;
       border-width: 2px;
     }
   }
@@ -59,13 +59,13 @@ export default {
     }
 
     @media screen and (max-width: $tablet-xm) {
-      font-size: $font-size-decorate-m;
       padding: 0 25px;
+      font-size: $font-size-decorate-m;
     }
 
     @media screen and (max-width: $smartphone) {
-      font-size: $font-size-decorate-s;
       padding: 0 12px;
+      font-size: $font-size-decorate-s;
     }
   }
 }

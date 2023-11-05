@@ -128,12 +128,12 @@ export default {
   @include unmarkedList;
 
   &__container {
-    max-width: 1308px;
     @include gridable();
     box-sizing: border-box;
-    opacity: 0;
-    overflow: hidden;
+    max-width: 1308px;
     max-height: 0px;
+    overflow: hidden;
+    opacity: 0;
     transition: 1s ease-in-out;
 
     &_opened {
@@ -147,27 +147,27 @@ export default {
     grid-template-areas:
       'exp description'
       '. tabs';
-    gap: 100px;
+    justify-content: space-between;
     box-sizing: border-box;
     padding: clamp(58px, 5vw, 74px) 0 clamp(75px, 7vw, 100px);
-    justify-content: space-between;
+    gap: 100px;
 
     @media screen and (max-width: $tablet-l) {
-      column-gap: 0;
-      row-gap: 80px;
-      grid-template-columns: repeat(2, 1fr);
       grid-template-areas:
         'exp description'
         'tabs tabs';
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 0;
+      row-gap: 80px;
     }
 
     @media screen and (max-width: $tablet-s) {
-      padding: clamp(30px, 7vw, 58px) 0 clamp(44px, 9vw, 75px);
-      grid-template-columns: 1fr;
       grid-template-areas:
         'exp'
         'description'
         'tabs';
+      grid-template-columns: 1fr;
+      padding: clamp(30px, 7vw, 58px) 0 clamp(44px, 9vw, 75px);
       row-gap: 30px;
     }
   }
@@ -176,13 +176,13 @@ export default {
     @include flexible();
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
-    border-top: 3px solid $color-text;
-    border-bottom: 3px solid $color-text;
     box-sizing: border-box;
-    cursor: pointer;
     box-sizing: border-box;
     padding: clamp(40px, 5vw, 60px) 0;
+    border-top: 3px solid $color-text;
+    border-bottom: 3px solid $color-text;
+    cursor: pointer;
+    gap: 20px;
 
     @media screen and (max-width: $tablet-s) {
       padding: clamp(18px, 5vw, 40px) 0;
@@ -191,15 +191,15 @@ export default {
   }
 
   &__title {
-    line-height: 1.2;
-    margin: 0;
-    color: $color-text;
-    font-family: $font-family-heading;
-    font-size: clamp($font-size-subtitle-m, 5vw, $font-size-subtitle-xl);
-    font-weight: 500;
-    letter-spacing: 0.14rem;
-    text-transform: uppercase;
     box-sizing: border-box;
+    margin: 0;
+    font-weight: 500;
+    font-size: clamp($font-size-subtitle-m, 5vw, $font-size-subtitle-xl);
+    line-height: 1.2;
+    font-family: $font-family-heading;
+    color: $color-text;
+    text-transform: uppercase;
+    letter-spacing: 0.14rem;
 
     @media screen and (max-width: $desktop-xl) {
       font-size: clamp($font-size-subtitle-m, 5vw, $font-size-subtitle-l);
@@ -239,18 +239,18 @@ export default {
   &__button-send {
     @include defaultButton;
     @include flexible();
-    font-family: $font-family-heading;
+    position: relative;
+    padding: clamp(13px, 1vw, 18px) 0;
+    overflow: hidden;
+    font-weight: 500;
     font-size: clamp($font-size-button-m, 2vw, $font-size-button-l);
+    line-height: 1.18;
+    font-family: $font-family-heading;
     color: $color-text;
+    text-transform: uppercase;
+    letter-spacing: 0.04rem;
     background-color: $color-decorate;
     border-radius: 50px;
-    padding: clamp(13px, 1vw, 18px) 0;
-    text-transform: uppercase;
-    line-height: 1.18;
-    letter-spacing: 0.04rem;
-    font-weight: 500;
-    overflow: hidden;
-    position: relative;
 
     @media screen and (max-width: $tablet-s) {
       font-size: clamp($font-size-button-s, 4vw, $font-size-button-m);
@@ -259,10 +259,10 @@ export default {
     &-container {
       @include flexible();
       @include defaultButton;
-      gap: 21px;
       flex-wrap: nowrap;
       transform: translateY(0);
       transition: transform 0.3s ease;
+      gap: 21px;
 
       @media screen and (max-width: $tablet-l) {
         gap: 15px;
@@ -280,9 +280,9 @@ export default {
     &::before {
       content: 'Откликнуться';
       position: absolute;
+      top: 100%;
       width: 100%;
       text-align: center;
-      top: 100%;
       transform: translateY(0);
       transition: transform 0.3s ease;
     }
@@ -294,14 +294,14 @@ export default {
 
   &__description {
     grid-area: description;
-    font-family: $font-family-text;
-    font-size: clamp($font-size-text-xl, 2vw, $font-size-text-6xl);
-    margin: 0;
-    color: $color-text;
-    font-weight: 400;
-    line-height: 1.3;
     width: 100%;
     max-width: 835px;
+    margin: 0;
+    font-weight: 400;
+    font-size: clamp($font-size-text-xl, 2vw, $font-size-text-6xl);
+    line-height: 1.3;
+    font-family: $font-family-text;
+    color: $color-text;
 
     @media screen and (max-width: $tablet-s) {
       font-size: clamp($font-size-text-l, 4vw, $font-size-text-xl);
@@ -311,14 +311,14 @@ export default {
 }
 
 .vacancy-tabs {
-  grid-area: tabs;
   @include flexible();
+  grid-area: tabs;
   flex-direction: column;
   max-width: 871px;
-  font-size: clamp($font-size-text-l, 2vw, $font-size-text-xl);
-  gap: 85px;
   font-weight: 400;
+  font-size: clamp($font-size-text-l, 2vw, $font-size-text-xl);
   color: $color-text;
+  gap: 85px;
 
   @media screen and (max-width: $tablet-l) {
     max-width: max-content;
@@ -333,16 +333,16 @@ export default {
     @include unmarkedList;
     @include flexible();
     justify-content: space-between;
-    cursor: pointer;
     font-family: $font-family-heading;
+    cursor: pointer;
   }
 
   &__title {
+    width: max-content;
+    margin: 0;
     line-height: 2.48;
     text-transform: uppercase;
     letter-spacing: 0.04rem;
-    margin: 0;
-    width: max-content;
     opacity: 0.8;
 
     @media screen and (max-width: $tablet-l) {
@@ -350,8 +350,8 @@ export default {
     }
 
     &_active {
-      opacity: 1;
       border-bottom: 5px solid $color-text;
+      opacity: 1;
 
       @media screen and (max-width: $tablet-l) {
         border-bottom-width: 2px;
@@ -370,13 +370,13 @@ export default {
   gap: 85px;
 
   &__list {
-    font-family: $font-family-text;
     @include unmarkedList;
     @include gridable();
-    justify-content: space-between;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 74px;
+    justify-content: space-between;
     line-height: 1.45;
+    font-family: $font-family-text;
+    gap: 74px;
 
     @media screen and (max-width: $tablet-l) {
       line-height: 1.38;
@@ -384,16 +384,16 @@ export default {
     }
 
     @media screen and (max-width: $tablet-s) {
-      gap: 0;
       font-size: clamp($font-size-text-m, 3vw, $font-size-text-xl);
+      gap: 0;
     }
   }
 
   &__item {
     box-sizing: border-box;
     padding-top: 25px;
-    opacity: 0.8;
     border-top: 1px solid rgba($color-border, 0.6);
+    opacity: 0.8;
 
     @media screen and (max-width: $tablet-s) {
       padding-top: 20px;
@@ -408,13 +408,13 @@ export default {
 }
 
 .experience {
-  grid-area: exp;
   @include flexible(max-content);
+  grid-area: exp;
   flex-direction: column;
-  font-family: $font-family-text;
   font-weight: 400;
-  color: $color-text;
   line-height: 1;
+  font-family: $font-family-text;
+  color: $color-text;
 
   &__number {
     font-size: clamp($font-size-counter-m, 10vw, $font-size-counter-l);

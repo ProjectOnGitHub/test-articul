@@ -35,8 +35,8 @@ export default {
 <style lang="scss" scoped>
 .contacts {
   @include gridable();
-  grid-template-columns: 580px 1fr;
   @include maxWidth();
+  grid-template-columns: 580px 1fr;
   align-items: center;
   gap: 90px 150px;
 
@@ -50,16 +50,16 @@ export default {
   }
 
   &__text {
+    width: 100%;
+    max-width: 808px;
+    margin: 0;
+    font-weight: 500;
+    font-size: clamp($font-size-text-3xl, 3vw, $font-size-text-7xl);
+    line-height: 1.4;
     font-family: $font-family-heading;
     color: $color-text;
     text-transform: uppercase;
-    width: 100%;
-    font-size: clamp($font-size-text-3xl, 3vw, $font-size-text-7xl);
-    font-weight: 500;
     letter-spacing: 0.07rem;
-    line-height: 1.4;
-    max-width: 808px;
-    margin: 0;
 
     @media screen and (max-width: $tablet-s) {
       font-size: clamp($font-size-text-l, 3vw, $font-size-text-3xl);
@@ -67,16 +67,16 @@ export default {
   }
 
   &__link {
+    position: relative;
+    padding-bottom: 2px;
     color: transparent;
+    white-space: nowrap;
     background-image: linear-gradient(90deg, $color-decorate 50%, $color-text 50%);
     background-position: 100%;
     background-size: 200% 100%;
     background-clip: text;
     transition: background-position 1s ease-in-out;
-    position: relative;
     text-decoration-skip-ink: none;
-    padding-bottom: 2px;
-    white-space: nowrap;
 
     &:hover {
       background-position: 0;
@@ -86,8 +86,8 @@ export default {
     &::before {
       content: '';
       position: absolute;
-      left: 0;
       bottom: -3px;
+      left: 0;
       display: block;
       height: 3px;
       transition: width 1s ease-in-out;
@@ -112,10 +112,10 @@ export default {
 .arrow {
   @include unmarkedList;
   @include gridable(100%);
-  align-content: center;
   justify-items: end;
-  min-height: 485px;
+  align-content: center;
   height: 100%;
+  min-height: 485px;
 
   @media screen and (max-width: $desktop-xl) {
     justify-items: center;

@@ -26,10 +26,10 @@ export default {
 <style lang="scss" scoped>
 .icon {
   &__counter {
+    @include counterSizes();
     position: absolute;
     flex-shrink: 0;
     animation: rotation 20s infinite linear;
-    @include counterSizes();
   }
 
   &__mail {
@@ -37,13 +37,13 @@ export default {
     height: 36px;
 
     @media screen and (max-width: $tablet-l) {
-      height: 30px;
       width: 30px;
+      height: 30px;
     }
 
     @media screen and (max-width: $smartphone) {
-      height: 19px;
       width: 19px;
+      height: 19px;
     }
   }
 }

@@ -123,13 +123,13 @@ export default {
 <style lang="scss" scoped>
 .popup {
   @include gridable();
+  position: relative;
   justify-content: stretch;
   justify-items: center;
-  background-color: $color-background;
-  gap: 120px;
-  position: relative;
   box-sizing: border-box;
   padding: 75px 0 120px;
+  background-color: $color-background;
+  gap: 120px;
 
   @media screen and (max-width: $tablet-s) {
     gap: 45px;
@@ -140,16 +140,6 @@ export default {
     position: absolute;
     top: 60px;
     right: 50px;
-
-    &::after,
-    &::before {
-      transition: background-color 0.5s ease;
-    }
-
-    &:hover::after,
-    &:hover::before {
-      background-color: $color-decorate;
-    }
 
     @media screen and (max-width: $desktop-l) {
       @include cross(45px, $color-text, 4px);
@@ -163,6 +153,16 @@ export default {
       position: absolute;
       top: 16px;
       right: 16px;
+    }
+
+    &::after,
+    &::before {
+      transition: background-color 0.5s ease;
+    }
+
+    &:hover::after,
+    &:hover::before {
+      background-color: $color-decorate;
     }
   }
 }

@@ -30,52 +30,52 @@ export default {
 .about {
   @include gridable();
   @include maxWidth();
-  grid-template-columns: 560px min-content auto;
   grid-template-areas:
     'features first-row first-row'
     'second-row second-row  counter'
     'text text counter';
-  gap: 30px;
+  grid-template-columns: 560px min-content auto;
   justify-content: center;
+  gap: 30px;
 
   @media screen and (max-width: $desktop-xxl) {
-    gap: 20px;
     grid-template-columns: 420px min-content auto;
+    gap: 20px;
   }
 
   @media screen and (max-width: $desktop-l) {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, auto) minmax(250px, 100%);
     grid-template-areas:
       'features features '
       'first-row first-row '
       'second-row second-row '
       'counter text';
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto) minmax(250px, 100%);
     justify-items: left;
   }
 
   @media screen and (max-width: $tablet-s) {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, max-content);
     grid-template-areas:
       'features'
       'first-row'
       'second-row'
       'text'
       'counter';
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, max-content);
     justify-items: left;
   }
 
   &__title {
-    font-family: 'DrukWide', Arial, sans-serif;
-    font-size: $font-size-title-xxl;
+    max-width: max-content;
+    margin: 0;
     font-weight: 500;
+    font-size: $font-size-title-xxl;
     line-height: 0.9;
+    font-family: 'DrukWide', Arial, sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.34rem;
-    margin: 0;
     white-space: nowrap;
-    max-width: max-content;
 
     @media screen and (max-width: $desktop-3xl) {
       font-size: $font-size-title-l;
@@ -106,8 +106,8 @@ export default {
 
     &_first-row {
       grid-area: first-row;
-      color: $color-text;
       align-self: end;
+      color: $color-text;
 
       @media screen and (max-width: $desktop-3xl) {
         justify-self: start;
@@ -116,24 +116,24 @@ export default {
 
     &_second-row {
       grid-area: second-row;
-      color: $color-decorate;
       align-self: start;
+      color: $color-decorate;
     }
   }
 
   &__text {
     grid-area: text;
-    font-family: $font-family-text;
-    font-size: $font-size-text-3xl;
-    width: 100%;
-    font-weight: normal;
-    max-width: 499px;
-    line-height: 1.34;
-    margin: 0;
-    color: $color-text;
     justify-self: center;
     align-self: end;
+    width: 100%;
+    max-width: 499px;
+    margin: 0;
     padding-top: 60px;
+    font-weight: normal;
+    font-size: $font-size-text-3xl;
+    line-height: 1.34;
+    font-family: $font-family-text;
+    color: $color-text;
 
     @media screen and (max-width: $desktop-l) {
       align-self: center;
@@ -154,24 +154,24 @@ export default {
 }
 
 .counter {
+  @include counterSizes();
+  position: relative;
   grid-area: counter;
   justify-content: center;
   align-items: center;
   align-self: center;
-  position: relative;
   overflow: hidden;
-  @include counterSizes();
 
   @media screen and (max-width: $tablet-s) {
     justify-self: end;
   }
 
   &__number {
-    display: inline-block;
     position: relative;
+    display: inline-block;
+    font-size: $font-size-counter-xl;
     font-family: $font-family-heading;
     color: $color-text;
-    font-size: $font-size-counter-xl;
 
     @media screen and (max-width: $desktop-l) {
       font-size: $font-size-counter-m;
