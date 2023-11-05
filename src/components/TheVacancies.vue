@@ -29,7 +29,7 @@
           <p class="vacancy__description">
             {{ vacancy.description }}
           </p>
-          <!-- <div class="vacancy-tabs">
+          <div class="vacancy-tabs">
             <ul class="vacancy-tabs__names">
               <li
                 v-for="(info, index) in vacancy.info"
@@ -73,7 +73,7 @@
                 Откликнуться
               </span>
             </base-button>
-          </div> -->
+          </div>
         </div>
       </div>
     </li>
@@ -152,9 +152,13 @@ export default {
     padding: clamp(58px, 5vw, 74px) 0 clamp(75px, 7vw, 100px);
     justify-content: space-between;
 
-    @media screen and (max-width: $desktop-l) {
+    @media screen and (max-width: $tablet-l) {
       column-gap: 0;
+      row-gap: 80px;
       grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        'exp description'
+        'tabs tabs';
     }
 
     @media screen and (max-width: $tablet-s) {
@@ -236,17 +240,21 @@ export default {
     @include defaultButton;
     @include flexible();
     font-family: $font-family-heading;
-    font-size: $font-size-text-xl;
+    font-size: clamp($font-size-button-m, 2vw, $font-size-button-l);
     color: $color-text;
     background-color: $color-decorate;
     border-radius: 50px;
-    padding: 22px 0;
+    padding: clamp(13px, 1vw, 18px) 0;
     text-transform: uppercase;
     line-height: 1.18;
     letter-spacing: 0.04rem;
     font-weight: 500;
     overflow: hidden;
     position: relative;
+
+    @media screen and (max-width: $tablet-s) {
+      font-size: clamp($font-size-button-s, 4vw, $font-size-button-m);
+    }
 
     &-container {
       @include flexible();
@@ -255,6 +263,14 @@ export default {
       flex-wrap: nowrap;
       transform: translateY(0);
       transition: transform 0.3s ease;
+
+      @media screen and (max-width: $tablet-l) {
+        gap: 15px;
+      }
+
+      @media screen and (max-width: $tablet-s) {
+        gap: 10px;
+      }
     }
 
     &:hover &-container {
@@ -299,17 +315,26 @@ export default {
   @include flexible();
   flex-direction: column;
   max-width: 871px;
-  font-family: $font-family-text;
-  font-size: $font-size-text-xl;
+  font-size: clamp($font-size-text-l, 2vw, $font-size-text-xl);
   gap: 85px;
   font-weight: 400;
   color: $color-text;
+
+  @media screen and (max-width: $tablet-l) {
+    max-width: max-content;
+    gap: 50px;
+  }
+
+  @media screen and (max-width: $tablet-s) {
+    gap: 30px;
+  }
 
   &__names {
     @include unmarkedList;
     @include flexible();
     justify-content: space-between;
     cursor: pointer;
+    font-family: $font-family-heading;
   }
 
   &__title {
@@ -320,9 +345,17 @@ export default {
     width: max-content;
     opacity: 0.8;
 
+    @media screen and (max-width: $tablet-l) {
+      font-size: clamp($font-size-default, 3vw, $font-size-text-l);
+    }
+
     &_active {
       opacity: 1;
       border-bottom: 5px solid $color-text;
+
+      @media screen and (max-width: $tablet-l) {
+        border-bottom-width: 2px;
+      }
     }
   }
 
@@ -337,12 +370,23 @@ export default {
   gap: 85px;
 
   &__list {
+    font-family: $font-family-text;
     @include unmarkedList;
     @include gridable();
     justify-content: space-between;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 74px;
-    max-width: 871px;
+    line-height: 1.45;
+
+    @media screen and (max-width: $tablet-l) {
+      line-height: 1.38;
+      row-gap: 40px;
+    }
+
+    @media screen and (max-width: $tablet-s) {
+      gap: 0;
+      font-size: clamp($font-size-text-m, 3vw, $font-size-text-xl);
+    }
   }
 
   &__item {
@@ -350,6 +394,16 @@ export default {
     padding-top: 25px;
     opacity: 0.8;
     border-top: 1px solid rgba($color-border, 0.6);
+
+    @media screen and (max-width: $tablet-s) {
+      padding-top: 20px;
+      padding-bottom: 20px;
+
+      &:first-of-type {
+        padding-top: 0;
+        border: none;
+      }
+    }
   }
 }
 

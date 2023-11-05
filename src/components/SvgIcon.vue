@@ -35,6 +35,16 @@ export default {
   &__mail {
     @include flexible(36px);
     height: 36px;
+
+    @media screen and (max-width: $tablet-l) {
+      height: 30px;
+      width: 30px;
+    }
+
+    @media screen and (max-width: $smartphone) {
+      height: 19px;
+      width: 19px;
+    }
   }
 }
 
